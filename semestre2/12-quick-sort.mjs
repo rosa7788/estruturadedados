@@ -19,6 +19,18 @@ function quickSort(vetor, ini = 0, fim = vetor.length - 1){
     if(vetor[div] > vetor[pivot] && div !== pivot){
         [vetor[div], vetor[pivot]] = [vetor[pivot], vetor[div]]
     }
+
+    quickSort(vetor, ini, div-1)
+    quickSort(vetor, div, +1, fim)
 }
 
 let nums = [2,5,7,1,6,3,4];
+
+quickSort(nums)
+
+console.log(nums)
+
+import {nomes} from "./data/nomes-desord"
+
+quickSort(nomes)
+console.log(pass, CompositionEvent,troca)
