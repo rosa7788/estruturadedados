@@ -279593,7 +279593,7 @@ export const objMotoristas = [
     "cpf": "645.***.***-44",
     "vigencia_do_cadastro": "23/10/2024"
   },
-  {
+ {
     "razao_social": "VIAÇÃO NOVO HORIZONTE LTDA.",
     "cnpj": "60.829.264/0001-84",
     "nome_motorista": "VALMI ************ MEIDA",
