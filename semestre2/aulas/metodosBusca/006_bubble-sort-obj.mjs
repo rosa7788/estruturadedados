@@ -20,7 +20,7 @@ function bubbleSort(vetor, fnComp) {
   } while (trocou);
 }
 
-import { objMotoristas } from "../data/motoristas-obj-desord.mjs";
+import { objMotoristas } from "../../data/motoristas-obj-desord.mjs";
 
 bubbleSort(
   objMotoristas,

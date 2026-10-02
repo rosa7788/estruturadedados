@@ -9,6 +9,6 @@ function comparaNome(obj) {
   return obj.first_name === "ALEXANDRE";
 }
 
-import { objNomes } from "../data/vetor-obj-nomes.mjs";
+import { objNomes } from "../../data/vetor-obj-nomes.mjs";
 
 console.log("Posição de ALEXANDRE:", buscaSequencial(objNomes, comparaNome));

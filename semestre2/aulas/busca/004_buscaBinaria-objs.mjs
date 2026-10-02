@@ -1,4 +1,4 @@
-import { objNomes } from "../data/vetor-obj-nomes.mjs";
+import { objNomes } from "../../data/vetor-obj-nomes.mjs";
 
 function buscaBinaria(vetor, fnComp) {
   let ini = 0;

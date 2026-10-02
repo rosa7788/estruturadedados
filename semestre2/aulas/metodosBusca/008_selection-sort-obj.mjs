@@ -21,7 +21,7 @@ function selectionSort(vetor, fnComp) {
   }
 }
 
-import { objMotoristas } from "../data/motoristas-obj-desord.mjs";
+import { objMotoristas } from "../../data/motoristas-obj-desord.mjs";
 
 selectionSort(objMotoristas, (elem1, elem2) => elem1.nome_motorista > elem2.nome_motorista)
 

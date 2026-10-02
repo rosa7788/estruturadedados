@@ -27,7 +27,7 @@ function bubbleSort(vetor) {
 // bubbleSort(nums)
 // console.log(nums)
 
-import {nomes} from "../data/nomes-desord.mjs"
+import {nomes} from "../../data/nomes-desord.mjs"
 
 bubbleSort(nomes)
 console.log(nomes)

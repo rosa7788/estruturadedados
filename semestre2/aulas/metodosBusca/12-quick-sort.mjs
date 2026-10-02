@@ -30,7 +30,7 @@ quickSort(nums)
 
 console.log(nums)
 
-import {nomes} from "../data/nomes-desord.mjs"
+import {nomes} from "../../data/nomes-desord.mjs"
 
 quickSort(nomes)
 console.log(pass, CompositionEvent,troca)
