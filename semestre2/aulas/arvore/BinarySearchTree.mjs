@@ -37,7 +37,79 @@ export default class BinarySearchTree {
     }
     //método privado que insere um novo nodo na árvore
     #insertNode(inserted,root){
+        //1° caso valor a ser inserido é menor que o valor da raiz
+    //inserção ororre a esquerda da raiz
+    if(inserted.data < root.data){
+        //se a posição a esqierda da raoz está desocupada faz a inserção
+      if(root.left === null){
+        root.left = inserted
+        
+      }
+      // se não reinicia o processo de inserção recursivamente com a subarvore esquerda com raiz
+      else{
+        this.#insertNode(inserted, root.left)
+      }
+      
+      
+    } 
+    
+    
+    //2° caso o valor a ser inserido seja maior que o valor da raiz
+    //inserção ocorre a direita da raiz
+    else if(inserted.data > root.data){
+      //se a posição a direita da raiz está desocupada faz a inserção
+      if(root.right === null){
+        root.rigth = inserted
+      }
+      // se não reinicia o processo de inserção recursivamente com a subarvore direita com raiz
 
+      else{
+        this.#insertNode(inserted, root.right)
+      }
+      // 3 ° caso o valor a ser inserido é igual ao valor da raiz
+      // se não reinicia o processo de inserção recursivamente com a subarvore esquerda com raiz
+
+    } else{
+      this.#insertNode(inserted, root.left)
     }
+    }
+
+    /*
+  Percursos
+  Métodos que executam o percurso em-ordem (in-order traversal) na arvore
+  ordem do percurso:
+    1° percorre recursivamente em-ordem a subarvore esquerda
+    2° visita a raiz
+    3° percorre recursivamente em-ordem a subarvore direita
+
+*/
+
+  inOrderTraversal(fnCallback, root = this.#root) {
+    if (root != null) {
+      this.inOrderTraversal(fnCallback, root.left);  //1°
+      fnCallback(root.data);                         //2°
+      this.inOrderTraversal(fnCallback, root.right); //3°
+    }
+  }
+
+  /* 
+  
+  método que executa o percurso pré-ordem (pre-order traversal) na arvore
+  ordem do percurso:
+    1° visita a raiz
+    2° percorre recursivamente em-ordem a subarvore esquerda
+    3° percorre recursivamente em-ordem a subarvore direita
+    
+  
+  
+  */
+   preOrderTransversal(fnCallback,root = this.#root){
+    if(root !== null){
+        fnCallback(root.data); //1º
+        this.preOrderTransversal(fnCallback, root.left);//2º
+        this.preOrderTransversal(fnCallback, root.right); //3º
+    }
+   }
+
 }
 
