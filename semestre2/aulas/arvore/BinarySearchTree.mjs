@@ -191,6 +191,12 @@ postOrderTransversal(fnCallback,root = this.#root){
       return root;
     }
 
+    /* 4.3 nodo de grau 1, com subarvore à direita*/
+    if(root.left !== null && root.right === null){
+      root = root.right
+      return root;
+    }
+
    }
   }
 
