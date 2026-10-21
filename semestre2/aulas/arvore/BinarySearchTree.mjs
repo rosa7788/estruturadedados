@@ -85,11 +85,11 @@ export default class BinarySearchTree {
 
 */
 
-  inOrderTraversal(fnCallback, root = this.#root) {
+  inOrderTransversal(fnCallback, root = this.#root) {
     if (root != null) {
-      this.inOrderTraversal(fnCallback, root.left);  //1°
+      this.inOrderTransversal(fnCallback, root.left);  //1°
       fnCallback(root.data);                         //2°
-      this.inOrderTraversal(fnCallback, root.right); //3°
+      this.inOrderTransversal(fnCallback, root.right); //3°
     }
   }
 
@@ -196,8 +196,46 @@ postOrderTransversal(fnCallback,root = this.#root){
       root = root.right
       return root;
     }
+    //4.4: nodo de grau 2,
+    /*precisamos encontrar:
+    1) o nodo de MAIOR valor da subárvore ESQUERDA; ou
+    2) o nodo de MENOR valor da subárvore DIREITA
+    */
 
+    //o nodo de menor valor da subárvore direita
+    const newRoot = this.#minNode(root.right);
+    root.data = newRoot.data;
+    //excluímos o valor
+    root.right = this.#removeNode(root.right, newRoot.data);
+    return root;
    }
+   /*Método publico que busca por um valor dentro da árvore
+   Retorna:
+   -true caso o valor exista; ou
+   -false caso contrario
+   */
+  search(val){
+    const node = this.#searchNode(this.#root, val)
+    return node !== null
+  }
+  /* Método privado #searchNode*/
+  #searchNode(root,val){
+    //1°caso: a árvore está vazia
+    if(root === null) return null;
+
+    //2°caso: o valor procurado é MENOR que o valor da raiz
+    //continua a busca pela subárvore ESQUERDA
+    if(val < root.data) return this.#searchNode(root.left, val);
+
+    //3°caso:o valor procurado é MAIOR que o valor da raiz
+    //continua a busca pela subárvore DIREITA
+    if (val > root.data) return this.#searchNode(root.right,val);
+
+    //4°caso: o valor procurado é IGUAL que o valor da raiz
+    //o valor procurado foi encontrado e está em root
+    return root;
+    
+  }
   }
 
     
